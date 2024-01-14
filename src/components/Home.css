@@ -1,0 +1,52 @@
+.main {
+  height: 100vh;
+  width: 100%;
+  background-image: url("../../public/bg.jpg");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.btnOne {
+  padding: 0.7vmax 1vmax;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  background-color: tomato;
+  color: white;
+  font-weight: 600;
+  font-size: 1vmax;
+  cursor: pointer;
+  transition: all 0.7s;
+}
+.btnOne:hover {
+  background-color: rgb(167, 57, 37);
+}
+
+.text {
+  width: 20vmax;
+  padding: 0.8vmax 1vmax;
+}
+
+.parent {
+  display: flex;
+  flex-direction: column;
+  margin: 1vmax;
+}
+
+.btnTwo {
+  padding: 0.7vmax 1vmax;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  background-color: tomato;
+  color: white;
+  font-weight: 600;
+  font-size: 1vmax;
+  cursor: pointer;
+  transition: all 0.7s;
+  margin-top: 1vmax;
+}
+.btnTwo:hover {
+  background-color: rgb(167, 57, 37);
+}
