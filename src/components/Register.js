@@ -1,13 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import "./Register.css";
+import axios from "axios";
 
 const Register = () => {
   const [formData, setFormData] = useState({
     studentName: "",
     rollNumber: "",
     studentClass: "",
-    course: "",
   });
 
   const handleChange = (e) => {
@@ -17,11 +17,22 @@ const Register = () => {
       [name]: value,
     });
   };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // You can perform further actions with the form data, such as sending it to a server
-    console.log("Form Data:", formData);
+
+    try {
+      // Send the form data to the backend using Axios
+      const response = await axios.post(
+        "http://127.0.0.1:8000/students/",
+        formData
+      );
+
+      // Handle the response if needed
+      console.log("Backend Response:", response.data);
+    } catch (error) {
+      // Handle errors if the request fails
+      console.error("Error submitting form:", error.message);
+    }
   };
   return (
     <form onSubmit={handleSubmit} className="mainReg">
@@ -50,26 +61,16 @@ const Register = () => {
         </div>
         <div>
           <input
-            type="text"
-            id="studentClass"
-            name="studentClass"
-            placeholder="Student Class"
-            value={formData.studentClass}
+            type="email"
+            id="studentEmail"
+            name="studentEmail"
+            placeholder="Student Email"
+            value={formData.studentEmail}
             onChange={handleChange}
             required
           />
         </div>
-        <div>
-          <input
-            type="text"
-            id="course"
-            name="course"
-            placeholder="Course"
-            value={formData.course}
-            onChange={handleChange}
-            required
-          />
-        </div>
+
         <button type="submit" className="btnOneReg">
           Register
         </button>
